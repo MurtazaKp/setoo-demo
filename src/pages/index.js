@@ -20,11 +20,11 @@ export default function Home() {
   return (
     <div className="flex flex-col">
      
-        <Header />
+        {/* <Header /> */}
       
 
       <ContactForm />
-      <Copyright />
+      {/* <Copyright /> */}
     </div>
   );
 }
