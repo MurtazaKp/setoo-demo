@@ -2,26 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+
+.react-international-phone-country-selector button{
+  height: 100% !important;
+  border: none !important;
+  background: transparent !important;
+
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.react-international-phone-input{
+  background-color: transparent !important;
+  border: none !important;
+  width: 100% !important;
+  color: white !important;
+  height: 48px !important;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+
+
+.react-international-phone-country-selector-dropdown li:hover{
+    color: black !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.react-international-phone-country-selector-dropdown{
+gap: 10px !important;
+}
+
+
+.react-international-phone-input-container{
+    padding-right:0 !important ;
+}
+
+
+.react-international-phone-country-selector-dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.react-international-phone-country-selector-dropdown::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.react-international-phone-country-selector-dropdown::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+.contact-btn:disabled{
+    cursor: not-allowed;
+}
+
+.react-international-phone-country-selector-dropdown{
+    opacity: 1 !important;
+    visibility: visible !important;   
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    backdrop-filter: blur(16px) !important;
+    box-shadow: 0px 1px 3px rgba(3, 4, 28, 0.12) !important;
+    color: #ffffff !important;
+    max-height: 150px !important;
+
+}
+
+.react-international-phone-country-selector-dropdown li:hover{
+    color: black !important;
+}
+
+.react-international-phone-country-selector-dropdown{
+gap: 10px !important;
+}
+
+
+@media screen and (min-width:1440px) {
+  .react-international-phone-country-selector-dropdown{
+    max-height: 200px !important;
   }
 }
