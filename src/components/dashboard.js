@@ -1,50 +1,43 @@
-import React, { useEffect, useState } from 'react'
-import Star from './icons/star'
-import { getData } from '@/client';
+import React, { useEffect, useState } from "react";
+import Star from "./icons/star";
+import { getData } from "@/client";
 
 const Dashboad = () => {
+  const [isReviews, setIsReviews] = useState([]);
+  const [averageRating, setAverageRating] = useState();
 
-    const [isReviews,setIsReviews]= useState([])
-    const [averageRating , setAverageRating] = useState();
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <Star
+          key={i}
+          className={`w-2 h-2 sm:w-3 sm:h-3 ${
+            i <= rating ? "fill-orange-400" : "fill-gray-300"
+          }`}
+        />
+      );
+    }
+    return stars;
+  };
 
+  const fetchReview = async () => {
+    try {
+      const res = await getData("user-rating");
+      setIsReviews([...res.data]);
+      setAverageRating(res.averageRating);
+    } catch (err) {
+      console.error("Something went wrong!", err);
+    }
+  };
 
-     const renderStars = (rating) => {
-       const stars = [];
-       for (let i = 1; i <= 5; i++) {
-         stars.push(
-           <Star
-             key={i}
-             className={`w-2 h-2 sm:w-3 sm:h-3 ${
-               i <= rating ? "fill-orange-400" : "fill-gray-300"
-             }`}
-           />
-         );
-       }
-       return stars;
-     };
-    
+  useEffect(() => {
+    fetchReview();
+  }, []);
 
-
-       const fetchReview = async () => {
-         try {
-           const res = await getData("user-rating");
-             setIsReviews([...res.data]);
-             setAverageRating(res.averageRating);
-        
-         } catch (err) {
-           console.error("Something went wrong!", err);
-         }
-       };
-
-       useEffect(() => {
-         fetchReview();
-       }, []);
-
-      
-       
   return (
     <>
-      <div className="px-8 py-5 font-sans lg:px-10 lg:py-6 font-pop">
+      <div className="px-8 py-5 font-sans lg:px-10 lg:py-6 font-pop container mx-auto">
         <div>
           <img src="/logo.svg" className="w-40" />
         </div>
@@ -70,7 +63,7 @@ const Dashboad = () => {
               </div>
               <div>
                 <div className="flex">
-                    {}
+                  {}
                   <Star className={"fill-yellow-500 w-3 h-3 sm:w-5 sm:h-5  "} />
                   <Star className={"fill-yellow-500 w-3 h-3 sm:w-5 sm:h-5 "} />
                   <Star className={"fill-yellow-500 w-3 h-3 sm:w-5 sm:h-5 "} />
@@ -78,7 +71,7 @@ const Dashboad = () => {
                   <Star className={"fill-gray-200 w-3 h-3 sm:w-5 sm:h-5 "} />
                 </div>
                 <p className="text-ss text-center text-gray-400 lg:text-base xl:text-base mt-2 lg:mt-1 xl:mt-1 font-mono">
-                 ({isReviews.length})
+                  ({isReviews.length})
                 </p>
               </div>
             </div>
@@ -138,16 +131,13 @@ const Dashboad = () => {
           </p>
         </div>
 
-        <div
-        
-          className="grid grid-cols-1 lg:grid-cols-2 lg:gap-8 xl:grid-cols-3 lg:mt-2"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:gap-8 xl:grid-cols-3 lg:mt-5">
           {isReviews &&
             isReviews.map((review, index) => {
               return (
                 <div
                   key={index}
-                  className="px-4 py-5 border-1 border-gray-300 mt-4 flex flex-col justify-between rounded-lg"
+                  className="px-4 py-5 border-1 border-gray-300  flex flex-col justify-between rounded-lg"
                 >
                   <div className="flex items-start justify-between mb-2">
                     {/* Title */}
@@ -157,8 +147,7 @@ const Dashboad = () => {
                     {/* Stars */}
                     <div>
                       <div className="flex gap-0.5">
-                        
-                         {renderStars(review.rating)} 
+                        {renderStars(review.rating)}
                       </div>
                       <p className="text-black-50 font-bold text-2xl font-mono lg:text-2xl xl:text-2xl flex justify-end mt-2">
                         {review.rating}
@@ -191,6 +180,6 @@ const Dashboad = () => {
       </div>
     </>
   );
-}
+};
 
-export default Dashboad
+export default Dashboad;
