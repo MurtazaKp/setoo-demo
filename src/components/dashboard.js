@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Star from "./icons/star";
 import { getData } from "@/client";
 
+
 const Dashboad = () => {
   const [ratingData, setRatingData] = useState(null);
 
@@ -35,6 +36,8 @@ const Dashboad = () => {
       fetchReview();
     }, 30000)
   }, []);
+
+  
 
   return (
     <>
