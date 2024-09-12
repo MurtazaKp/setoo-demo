@@ -3,8 +3,7 @@ import Star from "./icons/star";
 import { getData } from "@/client";
 
 const Dashboad = () => {
-  const [isReviews, setIsReviews] = useState([]);
-  const [averageRating, setAverageRating] = useState();
+  const [ratingData, setRatingData] = useState(null);
 
   const renderStars = (rating) => {
     const stars = [];
@@ -24,8 +23,7 @@ const Dashboad = () => {
   const fetchReview = async () => {
     try {
       const res = await getData("user-rating");
-      setIsReviews([...res.data]);
-      setAverageRating(res.averageRating);
+      setRatingData(res);
     } catch (err) {
       console.error("Something went wrong!", err);
     }
@@ -33,6 +31,9 @@ const Dashboad = () => {
 
   useEffect(() => {
     fetchReview();
+    setTimeout(() => {
+      fetchReview();
+    }, 30000)
   }, []);
 
   return (
@@ -58,7 +59,7 @@ const Dashboad = () => {
             <div className="w-30 flex items-center gap-5 lg:flex-col">
               <div className="flex items-center gap-1">
                 <p className="font-bold text-6xl font-mono lg:text-7xl xl:text-7xl text-orange-50">
-                  {averageRating}
+                  {ratingData?.averageRating}
                 </p>
               </div>
               <div>
@@ -71,7 +72,7 @@ const Dashboad = () => {
                   <Star className={"fill-gray-200 w-3 h-3 sm:w-5 sm:h-5 "} />
                 </div>
                 <p className="text-ss text-center text-gray-400 lg:text-base xl:text-base mt-2 lg:mt-1 xl:mt-1 font-mono">
-                  ({isReviews.length})
+                  ({ratingData?.data?.length})
                 </p>
               </div>
             </div>
@@ -79,7 +80,7 @@ const Dashboad = () => {
             <div className="w-full xl:w-full mt-5 lg:mt-0 xl:mt-0">
               <div className="flex items-center gap-2 xl:gap-2">
                 <p className="text-black-50 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
-                  5
+                  {ratingData?.ratingCount?.five_rating_count}
                 </p>
                 <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3  overflow-hidden border border-gray-300">
                   <div className="bg-orange-50 text-xs leading-none h-3  w-9/12"></div>
@@ -87,7 +88,7 @@ const Dashboad = () => {
               </div>
               <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
                 <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
-                  4
+                {ratingData?.ratingCount?.four_rating_count}
                 </p>
                 <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
                   <div className="bg-orange-50 text-xs leading-none h-3 w-2/12"></div>
@@ -95,7 +96,7 @@ const Dashboad = () => {
               </div>
               <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
                 <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
-                  3
+                {ratingData?.ratingCount?.three_rating_count}
                 </p>
                 <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
                   <div className="bg-orange-50 text-xs leading-none h-3 w-2/12"></div>
@@ -103,7 +104,7 @@ const Dashboad = () => {
               </div>
               <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
                 <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
-                  2
+                {ratingData?.ratingCount?.two_rating_count}
                 </p>
                 <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
                   <div className="bg-orange-50 text-xs leading-none h-3 w-1/12"></div>
@@ -111,7 +112,7 @@ const Dashboad = () => {
               </div>
               <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
                 <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
-                  1
+                {ratingData?.ratingCount?.one_rating_count}
                 </p>
                 <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
                   <div className="bg-orange-50 text-xs leading-none h-3 w-1/12"></div>
@@ -132,8 +133,8 @@ const Dashboad = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:gap-8 xl:grid-cols-3 lg:mt-5">
-          {isReviews &&
-            isReviews.map((review, index) => {
+          {ratingData &&
+            ratingData.data.map((review, index) => {
               return (
                 <div
                   key={index}
@@ -150,7 +151,7 @@ const Dashboad = () => {
                         {renderStars(review.rating)}
                       </div>
                       <p className="text-black-50 font-bold text-2xl font-mono lg:text-2xl xl:text-2xl flex justify-end mt-2">
-                        {review.rating}
+                        {review.rating || 0}
                       </p>
                     </div>
                   </div>
