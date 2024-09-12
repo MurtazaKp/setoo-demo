@@ -23,3 +23,18 @@ export const postData = async (url, data) => {
     return err;
   }
 };
+
+export const getData = async (url) => {
+  try {
+    const response = await fetch(`${VOICE_CALL_API}/${url}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const result = await response.json(); 
+    return result;
+  } catch (err) {
+    console.error("Error in getData:", err); 
+    return err; 
+  }
+};
