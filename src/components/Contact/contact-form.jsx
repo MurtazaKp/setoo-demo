@@ -37,7 +37,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="bg-gray-50 min-h-screen overflow-auto">
+    <section className="bg-gray-50 min-h-screen overflow-auto font-pop">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:min-h-screen lg:py-0">
         <a
           href="#"
@@ -146,7 +146,7 @@ const ContactForm = () => {
 
               <button
                 type="submit"
-                className="w-full text-white bg-[#2563eb] hover:bg-[#1d4ed8] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="w-full text-white-50 bg-[#2563eb] hover:bg-[#1d4ed8] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 disabled={isLoading}
               >
                 {isLoading && (

@@ -19,12 +19,7 @@ const geistMono = localFont({
 export default function Home() {
   return (
     <div className="flex flex-col">
-     
-        {/* <Header /> */}
-      
-
       <ContactForm />
-      {/* <Copyright /> */}
     </div>
   );
 }

@@ -28,12 +28,7 @@ const Dashboad = () => {
        const fetchReview = async () => {
          try {
            const res = await getData("user-rating");
-             console.log("test", res);
-
-           
-            
              setIsReviews([...res.data]);
-
              setAverageRating(res.averageRating);
         
          } catch (err) {
@@ -45,11 +40,11 @@ const Dashboad = () => {
          fetchReview();
        }, []);
 
-       console.log(isReviews, "asdifjafiosdjhfuioh");
+      
        
   return (
     <>
-      <div className="px-8 py-5 font-sans lg:px-10 lg:py-6">
+      <div className="px-8 py-5 font-sans lg:px-10 lg:py-6 font-pop">
         <div>
           <img src="/logo.svg" className="w-40" />
         </div>

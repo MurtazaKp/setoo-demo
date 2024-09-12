@@ -24,7 +24,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: "Titillium Web",
+        sans: "Titillium Web",      
       },
       fontSize: {
         xxs: "0.625rem",
