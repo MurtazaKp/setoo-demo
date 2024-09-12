@@ -47,9 +47,14 @@ const ContactForm = () => {
         </a>
         <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-semibold leading-tight tracking-tight text-gray-900 md:text-2xl">
-              Submit your details
+            <h1 className="text-base font-semibold leading-tight tracking-tight text-gray-900 md:text-2xl">
+              Quick Feedback, Hassle-Free Callback!
             </h1>
+
+            <p className="text-xs !mt-2 !mb-5">
+              Just fill in the basics, and our Executive will reach out to you
+              shortly.
+            </p>
             <form
               className="space-y-4 md:space-y-6"
               onSubmit={handleSubmit(onSubmit)}
