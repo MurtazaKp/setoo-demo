@@ -18,7 +18,7 @@ const ContactForm = () => {
 
   const onSubmit = (formData) => {
     setIsLoading(true);
-    postData("submit", {
+    postData("user-feedback", {
       name: formData.fullName,
       email: formData.email,
       phone: `${formData.phoneNumber}`,
