@@ -49,7 +49,7 @@ const Dashboad = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 lg:gap-20 mt-5 lg:mt-10">
           <div>
             <p className="text-black-50 text-4xl font-bold lg:text-3xl">
-              Reviews
+              Event Highlights and Reviews
             </p>
             <p className="text-sm text-gray-51 mt-3 lg:text-base lg:mt-4 xl:text-base xl:font-medium">
               Revolutionize your business with AI-driven software solutions that
@@ -83,42 +83,65 @@ const Dashboad = () => {
             <div className="w-full xl:w-full mt-5 lg:mt-0 xl:mt-0">
               <div className="flex items-center gap-2 xl:gap-2">
                 <p className="text-black-50 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
-                  {ratingData?.ratingCount?.five_rating_count}
+                  5
                 </p>
                 <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3  overflow-hidden border border-gray-300">
                   <div className="bg-orange-50 text-xs leading-none h-3  w-9/12"></div>
                 </div>
+                <p className="text-black-50 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
+                  ({ratingData?.ratingCount?.five_rating_count})
+                </p>
               </div>
               <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
                 <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
-                {ratingData?.ratingCount?.four_rating_count}
+                  4
                 </p>
                 <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
                   <div className="bg-orange-50 text-xs leading-none h-3 w-2/12"></div>
                 </div>
+                <div>
+                  <p className="text-black-50 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
+                    ({ratingData?.ratingCount?.four_rating_count})
+                  </p>
+                </div>
               </div>
               <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
                 <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
-                {ratingData?.ratingCount?.three_rating_count}
+                  3
                 </p>
                 <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
                   <div className="bg-orange-50 text-xs leading-none h-3 w-2/12"></div>
                 </div>
-              </div>
-              <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
-                <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
-                {ratingData?.ratingCount?.two_rating_count}
-                </p>
-                <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
-                  <div className="bg-orange-50 text-xs leading-none h-3 w-1/12"></div>
+                <div>
+                  <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                    ({ratingData?.ratingCount?.three_rating_count})
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
                 <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
-                {ratingData?.ratingCount?.one_rating_count}
+                  2
                 </p>
                 <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
                   <div className="bg-orange-50 text-xs leading-none h-3 w-1/12"></div>
+                </div>
+                <div>
+                  <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                    ({ratingData?.ratingCount?.two_rating_count})
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
+                <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                  1
+                </p>
+                <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
+                  <div className="bg-orange-50 text-xs leading-none h-3 w-1/12"></div>
+                </div>
+                <div>
+                  <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                    ({ratingData?.ratingCount?.one_rating_count})
+                  </p>
                 </div>
               </div>
             </div>
@@ -135,7 +158,7 @@ const Dashboad = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:gap-8 xl:grid-cols-3 lg:mt-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 xl:grid-cols-3 lg:mt-5">
           {ratingData &&
             ratingData.data.map((review, index) => {
               return (
@@ -145,9 +168,21 @@ const Dashboad = () => {
                 >
                   <div className="flex items-start justify-between mb-2">
                     {/* Title */}
-                    <p className="text-black-50 text-lg font-semibold  w-40 sm:w-60">
-                      {review.name}
-                    </p>
+                    <div>
+                      <p className="text-black-50 text-lg font-semibold  w-40 sm:w-60">
+                        {review.name}
+                      </p>
+                      <div className="mt-1">
+                        <p className="text-xs text-slate-400 lg:text-sm">
+                          <a href="#" className="no-underline outline-none">
+                            {review.email}
+                          </a>
+                        </p>
+                        <p className="text-gray-400 text-xs lg:text-sm">
+                          {review.phone_number}
+                        </p>
+                      </div>
+                    </div>
                     {/* Stars */}
                     <div>
                       <div className="flex gap-0.5">
@@ -160,17 +195,7 @@ const Dashboad = () => {
                   </div>
 
                   {/* Below Content */}
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <p className="text-xs text-slate-400 lg:text-sm">
-                        <a href="#" className="no-underline outline-none">
-                          {review.email}
-                        </a>
-                      </p>
-                      <p className="text-gray-400 text-xs lg:text-sm">
-                        {review.phone_number}
-                      </p>
-                    </div>
+                  <div className="flex justify-end items-start">
                     <div>
                       <p className="flex justify-end mt-6 text-gray-400 text-sm">
                         22.03.21
