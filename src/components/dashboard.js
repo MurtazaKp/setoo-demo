@@ -207,7 +207,7 @@ const Dashboad = () => {
               return (
                 <div
                   key={index}
-                  className="px-4 py-5 border-1 border-gray-300  flex flex-col justify-between rounded-lg"
+                  className="px-4 py-5 border-1 border-gray-300  flex flex-col justify-start rounded-lg"
                 >
                   <div className="flex items-start justify-between mb-2">
                     {/* Title */}
@@ -236,9 +236,16 @@ const Dashboad = () => {
                       </p>
                     </div>
                   </div>
+                  <div>
+                    <div>
+                      <p className="text-sm text-gray-600">
+                       {review.description}
+                      </p>
+                    </div>
+                  </div>
 
                   {/* Below Content */}
-                  <div className="flex justify-end items-start">
+                  <div className="flex justify-end items-start mt-auto">
                     <div>
                       <p className="flex justify-end mt-6 text-gray-400 text-sm">
                         <ConvertDate date={review.updatedAt} />
