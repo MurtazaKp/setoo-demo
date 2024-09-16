@@ -239,7 +239,7 @@ const Dashboad = () => {
                   <div>
                     <div>
                       <p className="text-sm text-[#c0c0c0]">
-                        {review.description}
+                        {review.feedback}
                       </p>
                     </div>
                   </div>
