@@ -37,21 +37,21 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="bg-gray-50 min-h-screen overflow-auto font-pop">
+    <section className="bg-[#1b1b1c] min-h-screen overflow-auto font-pop">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:min-h-screen lg:py-0">
         <a
           href="#"
-          className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
+          className="flex items-center mb-6 text-2xl font-semibold text-white-50"
         >
-          <img className="w-32 mr-2" src="/logo.svg" alt="logo" />
+          <img className="w-32 mr-2" src="/logo-white.svg" alt="logo" />
         </a>
-        <div className="w-full bg-white-100 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+        <div className="w-full bg-[#3b3b3b] rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-base font-semibold leading-tight tracking-tight text-gray-900 md:text-xl">
+            <h1 className="text-base font-semibold leading-tight tracking-tight text-white-50 md:text-xl">
               Quick Feedback, Hassle-Free Callback!
             </h1>
 
-            <p className="text-xs !mt-2 !mb-5">
+            <p className="text-xs !mt-2 !mb-5 text-white-50">
               Just fill in the basics, and our Executive will reach out to you
               shortly.
             </p>
@@ -62,7 +62,7 @@ const ContactForm = () => {
               <div>
                 <label
                   htmlFor="fullName"
-                  className="block mb-2 text-sm font-medium text-gray-900"
+                  className="block mb-2 text-sm font-medium text-gray-300"
                 >
                   Full name
                 </label>
@@ -70,7 +70,7 @@ const ContactForm = () => {
                   type="text"
                   id="fullName"
                   placeholder="Full name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  className="bg-gray-600 border placeholder:text-gray-200 border-gray-600 text-gray-200 rounded-lg focus:ring-primary-600 block w-full p-2.5 focus-visible:outline focus-visible:outline-gray-200"
                   {...register("fullName", {
                     required: "Full Name is required",
                   })}
@@ -85,7 +85,7 @@ const ContactForm = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900"
+                  className="block mb-2 text-sm font-medium text-white-50"
                 >
                   Your email
                 </label>
@@ -93,7 +93,7 @@ const ContactForm = () => {
                   type="email"
                   id="email"
                   placeholder="name@company.com"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  className="bg-gray-600 placeholder:text-gray-200 border-gray-600 text-gray-200  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 focus-visible:outline focus-visible:outline-gray-200"
                   {...register("email", {
                     required: "Email is required",
                     pattern: {
@@ -113,7 +113,7 @@ const ContactForm = () => {
               <div>
                 <label
                   htmlFor="phoneNumber"
-                  className="block mb-2 text-sm font-medium text-gray-900"
+                  className="block mb-2 text-sm font-medium text-gray-300"
                 >
                   Phone number
                 </label>
@@ -132,7 +132,7 @@ const ContactForm = () => {
                     <PhoneInput
                       {...field}
                       defaultCountry="in"
-                      className="block w-full px-2.5 border border-gray-300 text-gray-900 bg-gray-50 rounded-lg focus:ring-primary-600 focus:border-primary-600 text-base"
+                      className="block w-full   text-white-50 bg-gray-50 rounded-lg focus:ring-primary-600 focus:border-primary-600 text-base focus-visible:outline focus-visible:outline-gray-200"
                       onChange={(value) => field.onChange(value)}
                     />
                   )}
@@ -146,7 +146,7 @@ const ContactForm = () => {
 
               <button
                 type="submit"
-                className="w-full text-white-50 bg-[#2563eb] hover:bg-[#1d4ed8] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="w-full text-white-50  bg-[#ff5733] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 disabled={isLoading}
               >
                 {isLoading && (

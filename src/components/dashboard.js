@@ -15,7 +15,7 @@ const Dashboad = () => {
         <Star
           key={i}
           className={` ${className} ${
-            i <= rating ? "fill-orange-400" : "fill-gray-300"
+            i <= rating ? "fill-orange-500" : "fill-gray-300"
           }`}
         />
       );
@@ -46,14 +46,14 @@ const Dashboad = () => {
 
   return (
     <>
-      <div className="px-8 py-5 font-sans lg:px-10 lg:py-6 font-pop container mx-auto">
+      <div className="px-8 lg:px-4 py-5 font-sans  lg:py-6 font-pop">
         <div>
-          <img src="/logo.svg" className="w-40" />
+          <img src="/logo-white.svg" className="w-40" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 lg:gap-20 mt-5 lg:mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 lg:gap-20 mt-5 lg:mt-10 text-white-50">
           <div>
-            <p className="text-black-50 text-4xl font-bold lg:text-3xl">
+            <p className="text-white-50 text-4xl font-bold lg:text-3xl">
               Event Highlights and Reviews
             </p>
             <p className="text-sm text-gray-51 mt-3 lg:text-base lg:mt-4 xl:text-base xl:font-medium">
@@ -67,7 +67,7 @@ const Dashboad = () => {
             <div className="flex flex-col lg:flex-row xl:flex-row mt-10 lg:mt-0 xl:mt-0 lg:gap-3">
               <div className="w-30 flex items-center gap-5 lg:flex-col">
                 <div className="flex items-center gap-1">
-                  <p className="font-bold text-6xl font-mono lg:text-7xl xl:text-7xl text-orange-50">
+                  <p className="font-bold text-6xl font-mono lg:text-7xl xl:text-7xl text-orange-500">
                     {ratingData?.averageRating}
                   </p>
                 </div>
@@ -100,64 +100,64 @@ const Dashboad = () => {
 
               <div className="w-full xl:w-full mt-5 lg:mt-0 xl:mt-0">
                 <div className="flex items-center gap-2 xl:gap-2">
-                  <p className="text-black-50 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
+                  <p className="text-gray-200 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
                     5
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3  overflow-hidden border border-gray-300">
-                    <div className="bg-orange-50 text-xs leading-none h-3  w-9/12"></div>
+                    <div className="bg-orange-500 text-xs leading-none h-3  w-9/12"></div>
                   </div>
-                  <p className="text-black-50 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
+                  <p className="text-gray-200 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
                     ({ratingData?.ratingCount?.five_rating_count})
                   </p>
                 </div>
                 <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
-                  <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                  <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
                     4
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
-                    <div className="bg-orange-50 text-xs leading-none h-3 w-2/12"></div>
+                    <div className="bg-orange-500 text-xs leading-none h-3 w-2/12"></div>
                   </div>
                   <div>
-                    <p className="text-black-50 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
+                    <p className="text-gray-200 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
                       ({ratingData?.ratingCount?.four_rating_count})
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
-                  <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                  <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
                     3
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
-                    <div className="bg-orange-50 text-xs leading-none h-3 w-2/12"></div>
+                    <div className="bg-orange-500 text-xs leading-none h-3 w-2/12"></div>
                   </div>
                   <div>
-                    <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                    <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
                       ({ratingData?.ratingCount?.three_rating_count})
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
-                  <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                  <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
                     2
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
-                    <div className="bg-orange-50 text-xs leading-none h-3 w-1/12"></div>
+                    <div className="bg-orange-500 text-xs leading-none h-3 w-1/12"></div>
                   </div>
                   <div>
-                    <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                    <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
                       ({ratingData?.ratingCount?.two_rating_count})
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 md:mt-1 xl:gap-2">
-                  <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                  <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
                     1
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
-                    <div className="bg-orange-50 text-xs leading-none h-3 w-1/12"></div>
+                    <div className="bg-orange-500 text-xs leading-none h-3 w-1/12"></div>
                   </div>
                   <div>
-                    <p className="text-black-50 text-base font-semibold lg:text-base xl:text-xl font-mono">
+                    <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
                       ({ratingData?.ratingCount?.one_rating_count})
                     </p>
                   </div>
@@ -191,10 +191,10 @@ const Dashboad = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-3 mt-5 lg:mt-8">
-          <p className="text-black-50 text-xl font-bold lg:text-3xl xl:text-3xl">
+          <p className="text-white-50 text-xl font-bold lg:text-3xl xl:text-3xl">
             All Reviews{" "}
           </p>
-          <p className="text-xs text-gray-51 lg:text-base font-normal lg:mt-1">
+          <p className="text-xs text-white-50 lg:text-base font-normal lg:mt-1">
             (Rating and reviews are verified and are from people who use the
             service)
           </p>
@@ -207,21 +207,21 @@ const Dashboad = () => {
               return (
                 <div
                   key={index}
-                  className="px-4 py-5 border-1 border-gray-300  flex flex-col justify-start rounded-lg"
+                  className="px-4 py-5 border border-gray-500  bg-[#3b3b3b] flex flex-col justify-start rounded-lg"
                 >
                   <div className="flex items-start justify-between mb-2">
                     {/* Title */}
                     <div>
-                      <p className="text-black-50 text-lg font-semibold  w-40 sm:w-60 capitalize">
+                      <p className="text-white-50 text-lg font-semibold  w-40 sm:w-60">
                         {review.name}
                       </p>
                       <div className="mt-1">
-                        <p className="text-xs text-slate-400 lg:text-sm">
+                        <p className="text-xs text-[#c0c0c0] lg:text-sm">
                           <a href="#" className="no-underline outline-none">
                             {review.email}
                           </a>
                         </p>
-                        <p className="text-gray-400 text-xs lg:text-sm">
+                        <p className="text-[#c0c0c0] text-xs lg:text-sm">
                           {review.phone_number}
                         </p>
                       </div>
@@ -231,15 +231,15 @@ const Dashboad = () => {
                       <div className="flex gap-0.5">
                         {renderStars(review.rating, "w-2 h-2 sm:w-3 sm:h-3")}
                       </div>
-                      <p className="text-black-50 font-bold text-2xl font-mono lg:text-2xl xl:text-2xl flex justify-end mt-2">
+                      <p className="text-gray-200 font-bold text-2xl font-mono lg:text-2xl xl:text-2xl flex justify-end mt-2">
                         {review.rating || 0}
                       </p>
                     </div>
                   </div>
                   <div>
                     <div>
-                      <p className="text-sm text-gray-600">
-                       { review.feedback}
+                      <p className="text-sm text-[#c0c0c0]">
+                        {review.feedback}
                       </p>
                     </div>
                   </div>
@@ -247,7 +247,7 @@ const Dashboad = () => {
                   {/* Below Content */}
                   <div className="flex justify-end items-start mt-auto">
                     <div>
-                      <p className="flex justify-end mt-6 text-gray-400 text-sm">
+                      <p className="flex justify-end mt-6 text-[#c0c0c0] text-sm">
                         <ConvertDate date={review.updatedAt} />
                       </p>
                     </div>
