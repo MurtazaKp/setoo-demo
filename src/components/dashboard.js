@@ -212,7 +212,7 @@ const Dashboad = () => {
                   <div className="flex items-start justify-between mb-2">
                     {/* Title */}
                     <div>
-                      <p className="text-black-50 text-lg font-semibold  w-40 sm:w-60">
+                      <p className="text-black-50 text-lg font-semibold  w-40 sm:w-60 capitalize">
                         {review.name}
                       </p>
                       <div className="mt-1">
