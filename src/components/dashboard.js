@@ -3,12 +3,11 @@ import Star from "./icons/star";
 import { getData } from "@/client";
 import ConvertDate from "@/utility/convertDate";
 
-
 const Dashboad = () => {
   const [ratingData, setRatingData] = useState(null);
-  const [loading,setLoading]= useState(true)
+  const [loading, setLoading] = useState(true);
 
-  const renderStars = (rating,className) => {
+  const renderStars = (rating, className) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       stars.push(
@@ -23,13 +22,11 @@ const Dashboad = () => {
     return stars;
   };
 
-  
-
   const fetchReview = async () => {
     try {
       const res = await getData("user-rating");
       setRatingData(res);
-      setLoading(false)
+      setLoading(false);
     } catch (err) {
       console.error("Something went wrong!", err);
     }
@@ -39,10 +36,13 @@ const Dashboad = () => {
     fetchReview();
     setTimeout(() => {
       fetchReview();
-    }, 30000)
+    }, 30000);
   }, []);
 
-  
+  function getRatingPercentage(count) {
+    const percentage = Number(count / ratingData?.totalUser) * 100;
+    return `${percentage || 0}%`;
+  }
 
   return (
     <>
@@ -104,7 +104,14 @@ const Dashboad = () => {
                     5
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3  overflow-hidden border border-gray-300">
-                    <div className="bg-orange-500 text-xs leading-none h-3  w-9/12"></div>
+                    <div
+                      style={{
+                        width: getRatingPercentage(
+                          ratingData?.ratingCount?.five_rating_count
+                        ),
+                      }}
+                      className="bg-orange-500 text-xs leading-none h-3  w-9/12"
+                    ></div>
                   </div>
                   <p className="text-gray-200 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
                     ({ratingData?.ratingCount?.five_rating_count})
@@ -115,7 +122,14 @@ const Dashboad = () => {
                     4
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
-                    <div className="bg-orange-500 text-xs leading-none h-3 w-2/12"></div>
+                    <div
+                      style={{
+                        width: getRatingPercentage(
+                          ratingData?.ratingCount?.four_rating_count
+                        ),
+                      }}
+                      className="bg-orange-500 text-xs leading-none h-3 w-2/12"
+                    ></div>
                   </div>
                   <div>
                     <p className="text-gray-200 text-base font-semibold md:text-xs lg:text-base xl:text-xl font-mono">
@@ -128,7 +142,14 @@ const Dashboad = () => {
                     3
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
-                    <div className="bg-orange-500 text-xs leading-none h-3 w-2/12"></div>
+                    <div
+                      style={{
+                        width: getRatingPercentage(
+                          ratingData?.ratingCount?.three_rating_count
+                        ),
+                      }}
+                      className="bg-orange-500 text-xs leading-none h-3 w-2/12"
+                    ></div>
                   </div>
                   <div>
                     <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
@@ -141,7 +162,14 @@ const Dashboad = () => {
                     2
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
-                    <div className="bg-orange-500 text-xs leading-none h-3 w-1/12"></div>
+                    <div
+                      style={{
+                        width: getRatingPercentage(
+                          ratingData?.ratingCount?.two_rating_count
+                        ),
+                      }}
+                      className="bg-orange-500 text-xs leading-none h-3 w-1/12"
+                    ></div>
                   </div>
                   <div>
                     <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
@@ -154,7 +182,14 @@ const Dashboad = () => {
                     1
                   </p>
                   <div className="w-full bg-gray-200 max-w-sm rounded-lg h-3 overflow-hidden border border-gray-300">
-                    <div className="bg-orange-500 text-xs leading-none h-3 w-1/12"></div>
+                    <div
+                      style={{
+                        width: getRatingPercentage(
+                          ratingData?.ratingCount?.one_rating_count
+                        ),
+                      }}
+                      className="bg-orange-500 text-xs leading-none h-3 w-1/12"
+                    ></div>
                   </div>
                   <div>
                     <p className="text-gray-200 text-base font-semibold lg:text-base xl:text-xl font-mono">
